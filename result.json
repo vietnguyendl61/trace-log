@@ -1,0 +1,88 @@
+{
+  "Name": "cron.cleanup",
+  "SpanContext": {
+    "TraceID": "17968962c1a0087bf2d007be1185a9a7",
+    "SpanID": "f10a54195bd1f11f",
+    "TraceFlags": "01",
+    "TraceState": "",
+    "Remote": false
+  },
+  "Parent": {
+    "TraceID": "00000000000000000000000000000000",
+    "SpanID": "0000000000000000",
+    "TraceFlags": "00",
+    "TraceState": "",
+    "Remote": false
+  },
+  "SpanKind": 1,
+  "StartTime": "2026-03-28T16:32:12.0009723+07:00",
+  "EndTime": "2026-03-28T16:32:14.0021677+07:00",
+  "Attributes": [
+    {
+      "Key": "job.type",
+      "Value": {
+        "Type": "STRING",
+        "Value": "cleanup"
+      }
+    },
+    {
+      "Key": "cron.schedule",
+      "Value": {
+        "Type": "STRING",
+        "Value": "0 * * * *"
+      }
+    },
+    {
+      "Key": "success",
+      "Value": {
+        "Type": "BOOL",
+        "Value": true
+      }
+    }
+  ],
+  "Events": null,
+  "Links": null,
+  "Status": {
+    "Code": "Unset",
+    "Description": ""
+  },
+  "DroppedAttributes": 0,
+  "DroppedEvents": 0,
+  "DroppedLinks": 0,
+  "ChildSpanCount": 0,
+  "Resource": [
+    {
+      "Key": "environment",
+      "Value": {
+        "Type": "STRING",
+        "Value": "development"
+      }
+    },
+    {
+      "Key": "service.name",
+      "Value": {
+        "Type": "STRING",
+        "Value": "cron-bot"
+      }
+    },
+    {
+      "Key": "service.version",
+      "Value": {
+        "Type": "STRING",
+        "Value": "1.0.0"
+      }
+    }
+  ],
+  "InstrumentationScope": {
+    "Name": "cron-bot",
+    "Version": "",
+    "SchemaURL": "",
+    "Attributes": null
+  },
+  "InstrumentationLibrary": {
+    "Name": "cron-bot",
+    "Version": "",
+    "SchemaURL": "",
+    "Attributes": null
+  }
+}
