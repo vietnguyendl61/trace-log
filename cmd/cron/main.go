@@ -21,7 +21,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to init telemetry: %v", err)
 	}
-	defer shutdownTelemetry(ctx)
+	defer func() {
+		err = shutdownTelemetry(ctx)
+		if err != nil {
+			log.Println("Failed to shutdown telemetry:", err)
+		}
+	}()
 
 	// 2. Init Database (GORM + Pool + Tracing)
 	dbCfg := &database.Config{
