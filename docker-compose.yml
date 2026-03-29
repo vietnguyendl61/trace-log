@@ -1,0 +1,28 @@
+services:
+  # OpenTelemetry Collector (central hub)
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: otel-collector
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "4317:4317"   # OTLP gRPC (your Go app sends here)
+#      - "4318:4318"   # OTLP HTTP (optional)
+      - "13133:13133" # Health check
+    depends_on:
+      - jaeger
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: jaeger
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+      # Optional: Listen on all interfaces (helps with some Docker Desktop issues)
+      #- COLLECTOR_OTLP_GRPC_HOST_PORT=0.0.0.0:4317
+    ports:
+      - "16686:16686"   # Jaeger UI
+
+networks:
+  default:
+    name: observability
