@@ -25,7 +25,7 @@ graph TD
     
     D --> E[Worker Instance 1..N]
     E -->|Ack ngay| D
-    E -->|Push task| F[Background Processor<br/>(thread pool / Celery)]
+    E -->|Push task| F[Background Processor\n(thread pool / Celery)]
     F <--> C
     
     subgraph "Real-time Monitoring"
